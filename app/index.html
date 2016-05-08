@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NFC 2FA demo</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.0.26/css/bulma.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <style>
+        .logs {
+            font-family: 'Ubuntu Mono', sans-serif;
+        }
+    </style>
+</head>
+<body class="layout-default page-grid">
+    <section class="section hero is-dark is-bold">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    NFC 2FA client
+                </h1>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <ul id="box" class="logs">
+                <li>messages go here</li>
+            </ul>
+        </div>
+    </section>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+        socket.on('log', function(message){
+            var box = document.getElementById('box');
+
+            box.innerHTML = box.innerHTML + '<li>' + message + '</li>';
+        });
+    </script>
+</body>
+</html>

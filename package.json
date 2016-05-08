@@ -1,0 +1,32 @@
+{
+  "name": "kmoe-laptop",
+  "version": "1.0.0",
+  "description": "moe laptop services",
+  "main": "index.js",
+  "dependencies": {
+    "good": "^6.6.0",
+    "good-console": "^6.1.1",
+    "good-loggly": "^2.0.0",
+    "hapi": "^13.4.0",
+    "inert": "^3.2.1",
+    "notp": "^2.0.3",
+    "pn532": "^0.1.0",
+    "request": "^2.72.0",
+    "serialport": "^3.1.2-beta1",
+    "socket.io": "^1.4.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "nope"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kmoe/kmoe-laptop.git"
+  },
+  "author": "Katy Moe <katy@katy.moe> (http://katy.moe)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kmoe/kmoe-laptop/issues"
+  },
+  "homepage": "https://github.com/kmoe/kmoe-laptop#readme"
+}
