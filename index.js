@@ -16,6 +16,7 @@ const rfid = new pn532.PN532(serialPort, options);
 // other setup
 const request = require('request');
 const path = require('path');
+const moment = require('moment');
 
 const server = new Hapi.Server({
   connections: {
@@ -80,13 +81,12 @@ rfid.on('ready', function() {
     } else {
       log('undefined tag');
     }
-    log(tag);
     log('tag uid:', tag.uid);
     if (tag.uid === process.env.NFCID) {
       log('is katy');
 
       const totpToken = notp.totp.gen(process.env.TOTP_KEY);
-      log(totpToken);
+      log('totpToken: ' + totpToken);
 
       request({
         uri: 'http://kmoe.herokuapp.com/auth',
@@ -109,9 +109,9 @@ rfid.on('ready', function() {
 });
 
 function log() {
-  const args = Array.prototype.slice.call(arguments).join(' ');
-  console.log(args);
+  const message = Array.prototype.slice.call(arguments).join(' ');
+  console.log(message);
   if (io) {
-    io.emit('log', args);
+    io.emit('log', moment().format() + ': ' + message);
   }
 }
