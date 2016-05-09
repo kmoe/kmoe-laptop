@@ -48,13 +48,10 @@ server.register(require('inert'), (err) => {
 const io = require('socket.io')(server.listener);
 
 io.on('connection', function(socket){
-  log('a user <strong>connected</strong>');
-  log('PN532 initialised');
-  log('waiting for tag...');
-  log('tag scanned');
+  log('client <strong>connected</strong>');
 
   socket.on('disconnect', function(){
-    log('a user <strong>disconnected</strong>');
+    log('client <strong>disconnected</strong>');
   });
 });
 
@@ -71,10 +68,6 @@ log('Initialising...');
 
 rfid.on('ready', function() {
   log('PN532 initialised');
-
-  rfid.on('tag', function(tag) {
-    log('tag:', tag);
-  });
 
   console.log('Listening for a tag scan...');
   var authTimeout = setTimeout(function() {
