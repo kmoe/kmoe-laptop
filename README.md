@@ -1,2 +1,2 @@
-# kmoe-client
-moe client services
+# kmoe-laptop
+services running on the kmoe laptop
